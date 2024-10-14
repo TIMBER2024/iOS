@@ -1,0 +1,19 @@
+kind: pipeline
+name: default
+
+platform:
+    os: linux
+    arch: amd64
+
+steps:
+    - name: build_test
+      image: node:12
+      environment:
+          CODECOV_TOKEN:
+              from_secret: CODECOV_TOKEN
+      commands:
+          - npm install --unsafe-perm
+          - npm link --unsafe-perm
+          - npm run lint
+          - npm run test:ci
+          - npm run coverage:upload
