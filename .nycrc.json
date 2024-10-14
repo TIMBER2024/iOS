@@ -1,0 +1,21 @@
+{
+    "extension": [".ts"],
+    "exclude": [
+        "**/*.d.ts",
+        "**/node_modules/**",
+        "**/test/**",
+        "**/coverage/**",
+        "**/.compiler_cache/**",
+        "**/src/spec-lang/*_parser.ts",
+        "**/src/spec-lang/*_parser_header.ts",
+        "**/src/rewriter/*_parser.ts",
+        "**/src/rewriter/*_header.ts"
+    ],
+    "reporter": ["lcov", "text-summary"],
+    "all": true,
+    "check-coverage": true,
+    "statements": 90,
+    "branches": 85,
+    "functions": 90,
+    "lines": 90
+}
