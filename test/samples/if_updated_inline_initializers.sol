@@ -1,0 +1,33 @@
+pragma solidity 0.8.7;
+
+contract Base {
+	//// #if_updated x >= old(x);
+	uint x;
+	//// #if_updated arr.length > 0;
+	uint[] arr = [1];
+
+	//// #if_updated arr2.length > 0;
+	uint[][] arr2 = [[1,2], [3,4]];
+
+	struct S {
+		uint[] arr;
+		uint[][] arr2;
+	}
+
+	//// #if_updated s.arr.length > 0;
+	S s = S({arr:arr, arr2: arr2});
+
+	constructor() {
+		x = 1;
+	}
+}
+
+contract Child is Base {
+	constructor() public {
+		x = 4;
+		arr = [4];
+		arr2 = [[1], [2]];
+		s.arr = arr;
+		s.arr2 = arr2;
+	}
+}
